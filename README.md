@@ -1,14 +1,29 @@
-# ShishoSan
+ShishoSan README
+==================
 
-あなたの読んでいるネット小説、管理します
+$B$"$J$?$NFI$s$G$$$k%M%C%H>.@b!"4IM}$7$^$9(B
 
-## 特徴
+$BFCD'(B
+---------------
 
-##### マルチサイト対応
+- $B%^%k%A%5%$%HBP1~(B
 
-## 実装予定機能
+$B<BAuM=Dj5!G=(B
+---------------
 
-- 小説の登録機能
-- 小説の栞管理機能
-- 小説の閲覧機能
-- タイトルによる小説の検索機能
+- $B>.@b$NEPO?5!G=(B
+- $B>.@b$N[Y4IM}5!G=(B
+- $B>.@b$N1\Mw5!G=(B
+- $B%?%$%H%k$K$h$k>.@b$N8!:w5!G=(B
+
+Getting Started
+---------------
+
+- cd <directory containing this file>
+
+- $VENV/bin/python setup.py develop
+
+- $VENV/bin/initialize_shishosan_db development.ini
+
+- $VENV/bin/pserve development.ini
+
