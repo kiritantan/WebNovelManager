@@ -69,9 +69,9 @@ class Novel(Base):
     site_name = Column(String)
     pattern_url = Column(String)
 
-    def __init__(self, name, patter_url):
+    def __init__(self, name, pattern_url):
         self.name = name
-        self.pattern_url = patter_url
+        self.pattern_url = pattern_url
 
 
 class Bookmark(Base):
