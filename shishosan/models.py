@@ -25,7 +25,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
 
-    name = Column(Text, primary_key=True)
+    name = Column(Text, unique=True)
     _password = Column(String, nullable=False)
     _password_ctx = CryptContext(["sha512_crypt"])
 
