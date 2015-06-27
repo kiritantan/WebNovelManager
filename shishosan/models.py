@@ -18,6 +18,7 @@ from .db import (
     DBSession,
 )
 
+
 class User(Base):
     __tablename__ = 'users'
     query = DBSession.query_property()
@@ -32,7 +33,7 @@ class User(Base):
         self.name = name
         self.set_password(password)
         # TODO: validate that name should be ascii
-    
+
     def set_password(self, password):
         """set password with hashing
         :param password: raw new password
@@ -40,7 +41,7 @@ class User(Base):
         :return: None
         """
         self._password = self._password_ctx.encrypt(password)
-    
+
     def verify_password(self, password):
         """verify password. return it is correct, or not;
         :param password:  raw password, user inputs.
@@ -49,7 +50,7 @@ class User(Base):
         :rtype: bool
         """
         return self._password_ctx.verify(password, self._password)
-    
+
     def add_bookmark(self, novel):
         """
         :type novel: Novel
@@ -67,27 +68,27 @@ class Novel(Base):
     name = Column(Unicode)
     site_name = Column(String)
     pattern_url = Column(String)
-    
+
     def __init__(self, name, patter_url):
         self.name = name
         self.pattern_url = patter_url
-    
+
 
 class Bookmark(Base):
     __tablename__ = 'bookmarks'
     query = DBSession.query_property()
-    
+
     id = Column(Integer, primary_key=True)
-    
+
     user_id = Column(Integer, ForeignKey('users.id'))
     uesr = relationship(User)
-    
+
     novel_id = Column(Integer, ForeignKey('novels.id'))
     novel = relationship(Novel)
-    
+
     state = Column(Integer, nullable=False, default=0)
     url = Column(String)
-    
+
     def __init__(self, user, novel):
         self.user = user
         self.novel = novel
@@ -98,5 +99,6 @@ class MyModel(Base):
     id = Column(Integer, primary_key=True)
     name = Column(Text)
     value = Column(Integer)
+
 
 Index('my_index', MyModel.name, unique=True, mysql_length=255)
